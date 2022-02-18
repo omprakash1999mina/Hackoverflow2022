@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+/* TOP SECTION */
+#top h1{
+    background-color: yellow;
+    text-align: center;
+    line-height: 3.3rem;
+    color: white;
+}
+
+/* MIDDLE SECTION */
+
+#middle{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* LOWER SECTION */
+
+#lower{
+    background-color:  #232323;
+    height: 71vh;
+
+}
+#lower .container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+
+  
+}
+
+.container div{
+     background-color: red;
+     padding: 12px;
+     height: 100px;
+     width: 100px;
+     margin: 3px;
+     border-radius: 23px;
+
+}
