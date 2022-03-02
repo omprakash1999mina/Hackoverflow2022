@@ -1,6 +1,6 @@
 /* topSection SECTION */
 .topSection h1{
-  background-color: rgba(239, 243, 24, 0.596);
+  background-color: rgb(243, 203, 24);
   text-align: center;
   line-height: 3.3rem;
   color: white;
@@ -17,7 +17,7 @@
 /* LOWER SECTION */
 
 .lowerSection{
-  background-color:  #232323;
+  background-color:  #232323bb;
   height: 71vh;
 
 }
