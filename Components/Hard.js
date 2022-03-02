@@ -3,8 +3,17 @@ import styles from '../styles/Home.module.css'
 
 const Hard = () => {
   return (
-    <div>
-
+    <div className={styles.lowerSection}>
+      <div className={styles.container}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div className={styles.container}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
   )
 }

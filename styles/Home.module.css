@@ -11,6 +11,7 @@
 .middleSection{
   display: flex;
   justify-content: space-evenly;
+  padding: 2px 0px;
 }
 
 /* LOWER SECTION */
@@ -29,19 +30,38 @@
 .container div{
    background-color: red;
    padding: 12px;
-   height: 100px;
-   width: 100px;
-   margin: 3px;
+   height: 150px;
+   width: 150px;
+   margin: 30px 15px;
    border-radius: 23px;
 
 }
 .buttons{
   cursor: pointer;
-  padding: 5px 10px;
+  padding: 5px 20px;
+  margin: 0px 10px;
+  font-weight: 600;
+  font-size: medium;
+  color: brown;
+}
+.buttonsActive{
+  cursor: pointer;
+  padding: 5px 20px;
+  font-weight: 600;
+  font-size: medium;
+  background: brown;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+.buttons:hover{
+  background: brown;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
 }
 .buttonsContainer{
-  display: flex;
-  
+  display: flex; 
 }
 .rgb{
   font-weight: 500;

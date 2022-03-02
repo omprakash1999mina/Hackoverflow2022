@@ -6,8 +6,6 @@ import LowerSection from '../Components/LowerSection';
 import TopSection from '../Components/TopSection';
 
 export default function Home() {
-  const [easy, setEasy] = React.useState(true);
-  const [hard, setHard] = React.useState(true);
 
 
   return (
@@ -22,7 +20,7 @@ export default function Home() {
       
       <AnchorNavbar />
       
-      <LowerSection />
+      {/* <LowerSection /> */}
 
     </div>
   )

@@ -5,9 +5,9 @@ const LowerSection = () => {
     return (
         <div className={styles.lowerSection}>
             <div className={styles.container}>
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
             <div className={styles.container}>
                 <div>4</div>
