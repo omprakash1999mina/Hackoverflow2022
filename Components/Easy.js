@@ -10,12 +10,21 @@ const Easy = ({ state }) => {
   }, [colorsArray])
 
   const checkSuccess = (color, index) => {
+    if(success){ return; }
+
     if (color === colorsArray[currentColorIndex]) {
+      let array = [] ;
+      for (let index = 0; index < 3; index++) {
+        array.push(colors[currentColorIndex]) 
+      }
+      setColors(array);
       setSuccess(true);
     }
     else {
       const newColors = colors.filter(item => item !== colors[index])
       setColors(newColors);
+      setSuccess(false);
+
     }
   }
 
@@ -24,7 +33,7 @@ const Easy = ({ state }) => {
       <div className={styles.container}>
         {
           colors.map((color, index) => {
-            return <div key={index} onClick={() => checkSuccess(color, index)} style={{ background: success ? colorsArray[currentColorIndex] : `${color}` }}></div>
+            return <div className={styles.block} key={index} onClick={() => checkSuccess(color, index)} style={{ background: success ? colorsArray[currentColorIndex] : `${color}` }}></div>
           })
         }
       </div>

@@ -1,45 +1,65 @@
 /* topSection SECTION */
+.topSection{
+  height: 28vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .topSection h1{
-  /* background-color: ; */
-  text-align: center;
-  line-height: 3.3rem;
+  font-weight: 600;
+  font-size: 20px;
   color: white;
 }
+.rgb{
+  font-weight: 500;
+  font-size: 50px;
+  color: white;
+  padding: 20px;
+}
 
+.mainContainer{
+  height: 100%;
+  width: 100%;
+}
 /* MIDDLE SECTION */
 
 .middleSection{
   display: flex;
   justify-content: space-evenly;
   padding: 2px 0px;
+  height: 4vh;
 }
 
 /* LOWER SECTION */
 
 .lowerSection{
-  background-color:  #232323bb;
-  height: 71vh;
-
+  background:  #232323bb;
+  height: 67vh;
 }
-.lowerSection .container {
+.container{
+  width: 100%;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
+}
+.blockContainer {
+  display: grid;
+  /* grid-gap: 40px; */
+  grid-template-columns: 33% 33% 33%;
 }
 
-.container div{
-   background-color: red;
+.block{
    padding: 12px;
-   height: 150px;
-   width: 150px;
+   height: 100px;
+   width: 100px;
    margin: 30px 15px;
    border-radius: 23px;
    cursor: pointer;
-
 }
 .buttons{
   cursor: pointer;
-  padding: 5px 20px;
+  padding: 4px 20px;
   margin: 0px 10px;
   font-weight: 600;
   font-size: medium;
@@ -47,7 +67,7 @@
 }
 .buttonsActive{
   cursor: pointer;
-  padding: 5px 20px;
+  padding: 4px 20px;
   font-weight: 600;
   font-size: medium;
   background: brown;
@@ -63,9 +83,90 @@
 }
 .buttonsContainer{
   display: flex; 
+  justify-content: center;
+  align-items: center;
 }
-.rgb{
+
+.warning{
+  display: absolute;
+  padding: 5px 0px;
+  color: rgb(151, 146, 146);
+  font-weight: 600;
+  font-size: medium;
+}
+
+@media screen and (min-width: 1500px) {
+  .block{
+    width: 150px;
+    height: 150px;
+  }
+  .topSection h1{
+    font-weight: 600;
+    font-size: 30px;
+  }
+  .rgb{
+    font-weight: 500;
+    font-size: 60px;
+    padding: 20px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .block{
+    padding: 12px;
+    height: 90px;
+    width: 90px;
+    margin: 30px 15px;
+    border-radius: 15px;
+ }
+ .topSection h1{
+  font-weight: 600;
+  font-size: 18px;
+}
+ .rgb{
   font-weight: 500;
-  font-size: 80px;
+  font-size: 43px;
   padding: 20px;
+}
+.buttons{
+  padding: 4px 10px;
+  margin: 0px 5px;
+  font-weight: 600;
+  font-size: 12px;
+}
+.buttonsActive{
+  padding: 4px 10px;
+  font-weight: 600;
+  font-size: 12px;
+  border-radius: 4px;
+}
+.warning{
+  padding: 5px 0px;
+  font-size: 12px;
+}
+
+}
+@media screen and (max-width: 426px) {
+  .block{
+    padding: 12px;
+    height: 50px;
+    width: 50px;
+    margin: 30px 15px;
+    border-radius: 14px;
+ }
+ .buttons{
+  padding: 4px 10px;
+  margin: 0px 5px;
+  font-weight: 600;
+  font-size: 7px;
+}
+.buttonsActive{
+  padding: 4px 10px;
+  font-weight: 600;
+  font-size: 7px;
+  border-radius: 4px;
+}
+.warning{
+  padding: 5px 0px;
+  font-size: 7px;
+}
 }

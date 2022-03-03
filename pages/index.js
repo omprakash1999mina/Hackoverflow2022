@@ -15,7 +15,7 @@ export default function Home() {
 
   function random_rgba() {
     var o = Math.round, r = Math.random, s = 255;
-    return 'rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ',' + r().toFixed(1) + ')';
+    return 'rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ')';
   }
 
   React.useEffect(() => {
@@ -33,13 +33,13 @@ export default function Home() {
       colors.push(random_rgba())
     }
     setColorsArray(colors);
-    setSuccess(false);
+    setSuccess(null);
 
   }, [difficulty, reset]);
 
 
   return (
-    <div >
+    <div className={styles.mainContainer} >
       <Head>
         <title>Hackoverflow 2022</title>
         <meta name="description" content="This website created by Genius mind team ." />
@@ -50,11 +50,8 @@ export default function Home() {
 
       <AnchorNavbar state={{ setDifficulty, setReset, difficulty, success, reset }} />
 
-      <div className={styles.lowerSection}>
-
-        {difficulty === 'easy' ? <Easy state={{ currentColorIndex, colorsArray, success, setSuccess }} /> : <Hard state={{ currentColorIndex, colorsArray, success, setSuccess }} />}
-
-      </div>
+      {difficulty === 'easy' ? <Easy state={{ currentColorIndex, colorsArray, success, setSuccess }} /> : <Hard state={{ currentColorIndex, colorsArray, success, setSuccess }} />}
+      
     </div>
   )
 }
