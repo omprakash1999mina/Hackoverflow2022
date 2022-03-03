@@ -1,23 +1,30 @@
 import React from 'react'
 import styles from '../styles/Home.module.css'
-import { getColor } from '../reduxState/Colours/colorSlice';
-import { useSelector } from "react-redux";
 
-const Easy = () => {
-  const [colorsArray, setColorsArray] = React.useState([]);
-  const colors = useSelector(getColor);
+const Easy = ({ state }) => {
+  const { colorsArray, success, setSuccess, currentColorIndex } = state;
+  const [colors, setColors] = React.useState([]);
+
   React.useEffect(() => {
-    setColorsArray( colors.color.slice(0, 3) );
-    console.log(colorsArray)
+    setColors(colorsArray.slice(0, 3));
+  }, [colorsArray])
 
-  }, [colors])
+  const checkSuccess = (color, index) => {
+    if (color === colorsArray[currentColorIndex]) {
+      setSuccess(true);
+    }
+    else {
+      const newColors = colors.filter(item => item !== colors[index])
+      setColors(newColors);
+    }
+  }
 
   return (
     <div className={styles.lowerSection}>
       <div className={styles.container}>
         {
-          colorsArray.map((element) => {
-            return <div style={{ background: `${element}` }}></div>
+          colors.map((color, index) => {
+            return <div key={index} onClick={() => checkSuccess(color, index)} style={{ background: success ? colorsArray[currentColorIndex] : `${color}` }}></div>
           })
         }
       </div>

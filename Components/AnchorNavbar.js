@@ -1,28 +1,17 @@
 import React from 'react'
 import styles from '../styles/Home.module.css'
-import Easy from './Easy';
-import Hard from './Hard';
-import { useDispatch } from "react-redux";
 
-const AnchorNavbar = () => {
-    const [easy, setEasy] = React.useState(true);
-    const [hard, setHard] = React.useState(false);
+const AnchorNavbar = ({ state }) => {
+    const { setDifficulty, difficulty, setReset, reset } = state;
 
     return (
-        <>
-            <div className={styles.middleSection}>
-                <div className={styles.buttons}>NEW COLORS</div>
-                <span className={styles.buttonsContainer}>
-                    <div className={easy ? styles.buttonsActive : styles.buttons} onClick={() => { setHard(false); setEasy(true) }} >EASY</div>
-                    <div className={hard ? styles.buttonsActive : styles.buttons} onClick={() => { setHard(true); setEasy(false) }}>HARD</div>
-                </span >
-            </div >
-
-            <div className={styles.lowerSection}>
-
-                {easy ? <Easy /> : <Hard />}
-            </div >
-        </>
+        <div className={styles.middleSection}>
+            <div className={styles.buttons} onClick={() => setReset(!reset)} >NEW COLORS</div>
+            <span className={styles.buttonsContainer}>
+                <div className={difficulty === 'easy' ? styles.buttonsActive : styles.buttons} onClick={() => setDifficulty('easy')} >EASY</div>
+                <div className={difficulty === 'hard' ? styles.buttonsActive : styles.buttons} onClick={() => setDifficulty('hard')}>HARD</div>
+            </span >
+        </div >
     )
 }
 

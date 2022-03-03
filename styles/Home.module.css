@@ -1,6 +1,6 @@
 /* topSection SECTION */
 .topSection h1{
-  background-color: rgb(243, 203, 24);
+  /* background-color: ; */
   text-align: center;
   line-height: 3.3rem;
   color: white;
@@ -34,6 +34,7 @@
    width: 150px;
    margin: 30px 15px;
    border-radius: 23px;
+   cursor: pointer;
 
 }
 .buttons{

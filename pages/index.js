@@ -2,27 +2,41 @@ import React from 'react';
 import Head from 'next/head'
 import AnchorNavbar from '../Components/AnchorNavbar';
 import TopSection from '../Components/TopSection';
-import { useDispatch } from "react-redux";
-import {setColor} from '../reduxState/Colours/colorSlice';
+import Easy from '../Components/Easy';
+import Hard from '../Components/Hard';
+import styles from '../styles/Home.module.css';
+
 export default function Home() {
-  const dispatch = useDispatch();
+  const [difficulty, setDifficulty] = React.useState('easy');
+  const [success, setSuccess] = React.useState(null);
+  const [reset, setReset] = React.useState(false);
+  const [currentColorIndex, setCurrentColorIndex] = React.useState();
+  const [colorsArray, setColorsArray] = React.useState([]);
 
   function random_rgba() {
     var o = Math.round, r = Math.random, s = 255;
     return 'rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ',' + r().toFixed(1) + ')';
   }
 
-  React.useEffect(()=>{
-    let colorsArray = [];
+  React.useEffect(() => {
 
-    for (let index = 0; index < 6; index++) {
-      colorsArray.push(random_rgba())  
+    if (difficulty === 'hard') {
+      const random = Math.floor((Math.random() * 5) + 0);
+      setCurrentColorIndex(random)
+    } else {
+      const random = Math.floor((Math.random() * 2) + 0);
+      setCurrentColorIndex(random)
     }
 
-    dispatch(setColor(colorsArray));
-  },[])
-  
-  // Math.floor((Math.random() * 10) + 1);
+    let colors = [];
+    for (let index = 0; index < 6; index++) {
+      colors.push(random_rgba())
+    }
+    setColorsArray(colors);
+    setSuccess(false);
+
+  }, [difficulty, reset]);
+
 
   return (
     <div >
@@ -32,10 +46,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <TopSection />
-      
-      <AnchorNavbar />
-      
+      <TopSection state={{ currentColorIndex, colorsArray, success }} />
+
+      <AnchorNavbar state={{ setDifficulty, setReset, difficulty, success, reset }} />
+
+      <div className={styles.lowerSection}>
+
+        {difficulty === 'easy' ? <Easy state={{ currentColorIndex, colorsArray, success, setSuccess }} /> : <Hard state={{ currentColorIndex, colorsArray, success, setSuccess }} />}
+
+      </div>
     </div>
   )
 }
