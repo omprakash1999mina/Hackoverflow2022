@@ -20,8 +20,8 @@
 
 .mainContainer{
   position: relative;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
 }
 /* MIDDLE SECTION */
 
@@ -30,6 +30,8 @@
   justify-content: space-evenly;
   padding: 2px 0px;
   height: 4vh;
+  position: relative;
+
 }
 
 /* LOWER SECTION */
@@ -45,7 +47,6 @@
   align-items: center;
 }
 .blockContainer {
-  position: relative;
   display: grid;
   grid-template-columns: 33% 33% 33%;
 }
@@ -91,11 +92,9 @@
   display: flex; 
   justify-content: center;
   align-items: center;
-  position: relative;
 }
 .containerFireworks{
   position: absolute;
-  /* z-index: 1; */
   height: 100vh;
   width: 100vw;
 }
