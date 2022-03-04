@@ -153,6 +153,15 @@
     margin: 30px 15px;
     border-radius: 14px;
  }
+ .topSection h1{
+  font-weight: 600;
+  font-size: 15px;
+}
+ .rgb{
+  font-weight: 500;
+  font-size: 30px;
+  padding: 20px;
+}
  .buttons{
   padding: 4px 10px;
   margin: 0px 5px;
