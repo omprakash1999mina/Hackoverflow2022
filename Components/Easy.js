@@ -4,9 +4,11 @@ import styles from '../styles/Home.module.css'
 const Easy = ({ state }) => {
   const { colorsArray, success, setSuccess, currentColorIndex } = state;
   const [colors, setColors] = React.useState([]);
+  const [blockVisiblity, setBlockVisiblity] = React.useState([]);
 
   React.useEffect(() => {
     setColors(colorsArray.slice(0, 3));
+    setBlockVisiblity([true, true, true]);
   }, [colorsArray])
 
   const checkSuccess = (color, index) => {
@@ -21,10 +23,10 @@ const Easy = ({ state }) => {
       setSuccess(true);
     }
     else {
-      const newColors = colors.filter(item => item !== colors[index])
-      setColors(newColors);
+      let block = [...blockVisiblity];
+      block[index] = false;
+      setBlockVisiblity(block)
       setSuccess(false);
-
     }
   }
 
@@ -33,7 +35,7 @@ const Easy = ({ state }) => {
       <div className={styles.container}>
         {
           colors.map((color, index) => {
-            return <div className={styles.block} key={index} onClick={() => checkSuccess(color, index)} style={{ background: success ? colorsArray[currentColorIndex] : `${color}` }}></div>
+            return <div className={styles.block} key={index} onClick={() => checkSuccess(color, index)} style={{ background: `${color}`,visibility: !blockVisiblity[index] && !success && 'hidden'  }}></div>
           })
         }
       </div>
