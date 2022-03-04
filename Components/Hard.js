@@ -7,13 +7,16 @@ const Hard = ({ state }) => {
   const [blockVisiblity, setBlockVisiblity] = React.useState([]);
 
   React.useEffect(() => {
+    // making the a clone of array
     setColors(colorsArray);
     setBlockVisiblity([true, true, true, true, true, true]);
+    // making a array of visiblity of elements
   }, [colorsArray])
 
   const checkSuccess = (color, index) => {
+    // if the use win then return witout any change on click after win
     if (success) { return; }
-
+    // if user choosen color match with the current showing rgb vale color then assinging the all colors with right color
     if (color === colorsArray[currentColorIndex]) {
       let array = [];
       for (let index = 0; index < 6; index++) {
@@ -23,6 +26,7 @@ const Hard = ({ state }) => {
       setSuccess(true);
     }
     else {
+      // if user choose wrong color the update visibility of that element false and success false
       let block = [...blockVisiblity];
       block[index] = false;
       setBlockVisiblity(block)

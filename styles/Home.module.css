@@ -45,7 +45,6 @@
 }
 .blockContainer {
   display: grid;
-  /* grid-gap: 40px; */
   grid-template-columns: 33% 33% 33%;
 }
 

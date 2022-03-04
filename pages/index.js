@@ -13,22 +13,25 @@ export default function Home() {
   const [currentColorIndex, setCurrentColorIndex] = React.useState();
   const [colorsArray, setColorsArray] = React.useState([]);
 
+  // function for random colors
   function random_rgba() {
     var o = Math.round, r = Math.random, s = 255;
-    return 'rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ')';
+    return 'rgb(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ')';
   }
 
   React.useEffect(() => {
-
     if (difficulty === 'hard') {
+      // choosing a index between 0 to 5 for hard
       const random = Math.floor((Math.random() * 5) + 0);
       setCurrentColorIndex(random)
     } else {
+      // choosing a index between 0 to 2 for easy
       const random = Math.floor((Math.random() * 2) + 0);
       setCurrentColorIndex(random)
     }
 
     let colors = [];
+    //making a 6 element array 
     for (let index = 0; index < 6; index++) {
       colors.push(random_rgba())
     }
@@ -36,7 +39,7 @@ export default function Home() {
     setSuccess(null);
 
   }, [difficulty, reset]);
-
+  // useEffect rerender the dom when difficulty and reset changes 
 
   return (
     <div className={styles.mainContainer} >
@@ -49,9 +52,10 @@ export default function Home() {
       <TopSection state={{ currentColorIndex, colorsArray, success }} />
 
       <AnchorNavbar state={{ setDifficulty, setReset, difficulty, success, reset }} />
-
-      {difficulty === 'easy' ? <Easy state={{ currentColorIndex, colorsArray, success, setSuccess }} /> : <Hard state={{ currentColorIndex, colorsArray, success, setSuccess }} />}
       
+      {/* if difficulty level is easy show easy Component otherwise show hard Component */}
+      {difficulty === 'easy' ? <Easy state={{ currentColorIndex, colorsArray, success, setSuccess }} /> : <Hard state={{ currentColorIndex, colorsArray, success, setSuccess }} />}
+
     </div>
   )
 }
