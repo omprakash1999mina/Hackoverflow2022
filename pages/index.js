@@ -5,6 +5,7 @@ import TopSection from '../Components/TopSection';
 import Easy from '../Components/Easy';
 import Hard from '../Components/Hard';
 import styles from '../styles/Home.module.css';
+import FireworksIllustration from '../Components/FireworksIllustration';
 
 export default function Home() {
   const [difficulty, setDifficulty] = React.useState('easy');
@@ -43,6 +44,7 @@ export default function Home() {
 
   return (
     <div className={styles.mainContainer} >
+      {success && <FireworksIllustration/>}
       <Head>
         <title>Hackoverflow 2022</title>
         <meta name="description" content="This website created by Genius mind team ." />

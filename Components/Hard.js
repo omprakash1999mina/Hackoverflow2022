@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styles from '../styles/Home.module.css'
+import DissappearIllustration from './DisappearIllustration';
 
 const Hard = ({ state }) => {
   const { colorsArray, success, setSuccess, currentColorIndex } = state;
@@ -37,10 +38,11 @@ const Hard = ({ state }) => {
   return (
     <div className={styles.lowerSection}>
       <div className={styles.container}>
+        
         <div className={styles.blockContainer}>
           {
             colors.map((color, index) => {
-              return <div className={styles.block} key={index} onClick={() => checkSuccess(color, index)} style={{ background: `${color}`, visibility: !blockVisiblity[index] && !success && 'hidden' }} ></div>
+              return <div className={styles.block} key={index} onClick={() => checkSuccess(color, index)} style={{ background: `${color}`, visibility: !blockVisiblity[index] && !success && 'hidden' }} >{ !blockVisiblity[index] && <DissappearIllustration/>}</div>
             })
           }
         </div>

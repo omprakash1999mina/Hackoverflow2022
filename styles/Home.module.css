@@ -35,7 +35,7 @@
 
 .lowerSection{
   background:  #232323bb;
-  height: 67vh;
+  height: 67.5vh;
 }
 .container{
   width: 100%;
@@ -44,6 +44,7 @@
   align-items: center;
 }
 .blockContainer {
+  position: relative;
   display: grid;
   grid-template-columns: 33% 33% 33%;
 }
@@ -89,10 +90,19 @@
   display: flex; 
   justify-content: center;
   align-items: center;
+  position: relative;
 }
-
+.containerFireworks{
+  position: absolute;
+  z-index: 1;
+  height: 100vh;
+  width: 100vw;
+}
+.containerDisappear{
+  height: 100%;
+  width: 100%;
+}
 .warning{
-  display: absolute;
   padding: 5px 0px;
   color: rgb(151, 146, 146);
   font-weight: 600;
