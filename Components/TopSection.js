@@ -5,7 +5,7 @@ const TopSection = ({ state }) => {
     const { currentColorIndex, colorsArray, success, attempts } = state;
     return (
         <div className={styles.topSection} style={{ background: success ? colorsArray[currentColorIndex] : `rgb(243, 203, 24)` }}>
-            {success && <p className={styles.rgb}>{`You Won in ${attempts} attempts`}</p>}
+            {success && <p className={styles.win}>{`You Won in ${attempts} attempts`}</p>}
             {!success &&
                 <>
                     <h1>THE GREAT</h1>
