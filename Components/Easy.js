@@ -3,7 +3,7 @@ import styles from '../styles/Home.module.css'
 import DissappearIllustration from './DisappearIllustration';
 
 const Easy = ({ state }) => {
-  const { colorsArray, success, setSuccess, currentColorIndex } = state;
+  const { colorsArray, success, setSuccess, currentColorIndex,setAttempts, attempts } = state;
   const [colors, setColors] = React.useState([]);
   const [blockVisiblity, setBlockVisiblity] = React.useState([]);
 
@@ -17,6 +17,9 @@ const Easy = ({ state }) => {
   const checkSuccess = (color, index) => {
     // if the use win then return witout any change on click after win
     if (success) { return; }
+    
+    // increasing the attemps with click
+    setAttempts( attempts+1);
 
     // if user choosen color match with the current showing rgb vale color then assinging the all colors with right color
     if (color === colorsArray[currentColorIndex]) {
