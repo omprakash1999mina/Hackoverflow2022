@@ -13,6 +13,7 @@ export default function Home() {
   const [reset, setReset] = React.useState(false);
   const [currentColorIndex, setCurrentColorIndex] = React.useState();
   const [colorsArray, setColorsArray] = React.useState([]);
+  const [attempts, setAttempts] = React.useState(0);
 
   // function for random colors
   function random_rgba() {
@@ -38,25 +39,26 @@ export default function Home() {
     }
     setColorsArray(colors);
     setSuccess(null);
+    setAttempts(0);
 
   }, [difficulty, reset]);
   // useEffect rerender the dom when difficulty and reset changes 
 
   return (
     <div className={styles.mainContainer} >
-      {success && <FireworksIllustration/>}
+      {success && <FireworksIllustration />}
       <Head>
         <title>Hackoverflow 2022</title>
         <meta name="description" content="This website created by Genius mind team ." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <TopSection state={{ currentColorIndex, colorsArray, success }} />
+      <TopSection state={{ currentColorIndex, colorsArray, success, attempts }} />
 
       <AnchorNavbar state={{ setDifficulty, setReset, difficulty, success, reset }} />
-      
+
       {/* if difficulty level is easy show easy Component otherwise show hard Component */}
-      {difficulty === 'easy' ? <Easy state={{ currentColorIndex, colorsArray, success, setSuccess }} /> : <Hard state={{ currentColorIndex, colorsArray, success, setSuccess }} />}
+      {difficulty === 'easy' ? <Easy state={{ attempts, currentColorIndex, colorsArray, success, setSuccess, setAttempts }} /> : <Hard state={{ attempts, currentColorIndex, colorsArray, success, setSuccess, setAttempts }} />}
 
     </div>
   )

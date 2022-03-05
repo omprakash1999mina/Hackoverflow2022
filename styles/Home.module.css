@@ -1,6 +1,7 @@
 /* topSection SECTION */
 .topSection{
   height: 28vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -58,7 +59,6 @@
    margin: 30px 15px;
    border: none;
    border-radius: 23px;
-   cursor: pointer;
    transition : all .6s;
    /* -wekit-transition : all .6s; */
    /* -moz-transition : all .6s; */
@@ -114,6 +114,12 @@
     width: 150px;
     height: 150px;
   }
+  .block:hover{
+    /* height: 155px; */
+    /* width: 155px; */
+    opacity: 0.6;
+    cursor: pointer;
+ }
   .topSection h1{
     font-weight: 600;
     font-size: 30px;
